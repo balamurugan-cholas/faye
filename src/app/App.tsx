@@ -177,12 +177,6 @@ const quoteRef = useRef<HTMLDivElement | null>(null);
           >
             Captured by FAYE
           </h1>
-          <p
-            className="text-white/90 tracking-[0.25em] uppercase mb-16"
-            style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', letterSpacing: '0.25em' }}
-          >
-            Not Just Photos. Moments That Stay.
-          </p>
 
           <p
             className="text-white/90 tracking-[0.25em] uppercase mb-10"
