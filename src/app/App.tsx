@@ -178,12 +178,6 @@ const quoteRef = useRef<HTMLDivElement | null>(null);
           >
             Captured by FAYE
           </h1>
-          <p
-            className="text-white/90 tracking-[0.25em] uppercase mb-16"
-            style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', letterSpacing: '0.25em' }}
-          >
-            Not Just Photos. Moments That Stay.
-          </p>
 
           <p
             className="text-white/90 tracking-[0.25em] uppercase mb-10"
@@ -196,7 +190,7 @@ const quoteRef = useRef<HTMLDivElement | null>(null);
           <div className="flex items-center justify-center gap-4 mb-16 flex-wrap">
             {/* Hire Me Button */}
             <a
-              href="mailto:hello@faye.com"
+              href="mailto:fayegiggey@gmail.com"
               className="px-8 py-3 border border-black text-white bg-black
                         uppercase tracking-[0.2em] text-xs
                         hover:bg-white hover:text-black hover:border-black transition-all duration-300 ease-out
@@ -365,7 +359,7 @@ const quoteRef = useRef<HTMLDivElement | null>(null);
           </a>
 
           <a
-            href="mailto:balamurugan.codes@gmail.com"
+            href="mailto:fayegiggey@gmail.com"
             className="flex flex-col items-center gap-3 text-white/70 hover:text-white transition-colors duration-500 group"
           >
             <Mail size={32} strokeWidth={1.5} />
