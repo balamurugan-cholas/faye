@@ -29,6 +29,7 @@ const timeSlots = [
 
 export function BookingSection() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -43,6 +44,8 @@ export function BookingSection() {
   const selectedDate = watch('date');
 
   const onSubmitBooking = async (data: BookingFormData) => {
+  setLoading(true);
+
   const formData = new FormData();
 
   formData.append("form-name", "booking");
@@ -67,6 +70,8 @@ formData.append("date", formattedDate);
       method: "POST",
       body: formData,
     });
+
+    setLoading(false);
 
     // ✅ only show success AFTER Netlify receives it
     setShowSuccessModal(true);
@@ -346,12 +351,27 @@ formData.append("date", formattedDate);
             {/* Submit Button */}
             <div className="flex justify-center">
               <button
-                type="submit"
-                className="group relative px-12 py-5 bg-[#0E0E0E] dark:bg-white text-white dark:text-[#0E0E0E] rounded-full hover:shadow-2xl transition-all duration-500 uppercase tracking-widest text-sm font-bold overflow-hidden"
-              >
-                <span className="relative z-10">Request Booking</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#2A2A2A] to-[#0E0E0E] dark:from-[#E5E5E5] dark:to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </button>
+  type="submit"
+  disabled={loading}
+  className="group relative px-12 py-5 bg-[#0E0E0E] dark:bg-white 
+             text-white dark:text-[#0E0E0E] rounded-full 
+             hover:shadow-2xl transition-all duration-500 
+             uppercase tracking-widest text-sm font-bold 
+             overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed"
+>
+  {!loading ? (
+    <span className="relative z-10">Request Booking</span>
+  ) : (
+    <span className="relative z-10 flex items-center gap-2">
+      Sending
+      <span className="dots">
+        <span>.</span>
+        <span>.</span>
+        <span>.</span>
+      </span>
+    </span>
+  )}
+</button>
             </div>
           </form>
         </div>
