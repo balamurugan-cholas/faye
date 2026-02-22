@@ -185,13 +185,6 @@ const quoteRef = useRef<HTMLDivElement | null>(null);
             Not Just Photos. Moments That Stay.
           </p>
 
-          <p
-            className="text-white/90 tracking-[0.25em] uppercase mb-10"
-            style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', letterSpacing: '0.25em' }}
-          >
-            Not Just Photos. Moments That Stay.
-          </p>
-
           {/* CTA Buttons */}
           <div className="flex items-center justify-center gap-4 mb-16 flex-wrap">
             {/* Hire Me Button */}
