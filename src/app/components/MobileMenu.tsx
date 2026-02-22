@@ -67,6 +67,13 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 Work
               </button>
               <button
+                onClick={() => scrollToSection('booking')}
+                className="text-white/80 hover:text-white transition-colors duration-300 text-left tracking-[0.2em] uppercase text-sm"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                Book a Slot
+              </button>
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-left tracking-[0.2em] uppercase text-sm"
                 style={{ fontFamily: 'Inter, sans-serif' }}

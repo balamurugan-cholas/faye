@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import Masonry from 'react-responsive-masonry';
-import { ChevronDown, Menu, Instagram, Mail } from 'lucide-react';
+import { ChevronDown, Menu, Instagram, Mail,  Calendar, Clock, MapPin, DollarSign } from 'lucide-react';
 import { ThemeToggle } from './components/ThemeToggle';
 import { MobileMenu } from './components/MobileMenu';
 import { FeaturedCarousel } from './components/FeaturedCarousel';
+import BookingSection from './components/BookingSection';
 import img1 from './portfolio/img1.jpeg';
 import img2 from './portfolio/img2.jpeg';
 import img3 from './portfolio/img3.jpeg';
@@ -205,20 +206,21 @@ const quoteRef = useRef<HTMLDivElement | null>(null);
               Hire Me
             </a>
 
-            {/* Instagram Button */}
-            <a
-              href="https://instagram.com/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* Book a Slot button */}
+            <button
+              onClick={() => {
+                  const section = document.getElementById("booking");
+                  section?.scrollIntoView({ behavior: "smooth" });
+                }}
               className="px-8 py-3 border border-black text-black bg-white
                         uppercase tracking-[0.2em] text-xs flex items-center gap-2
                         hover:bg-black hover:text-white hover:border-white transition-all duration-300 ease-out
                         transition-all duration-300 ease-out"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
-              <Instagram size={16} strokeWidth={1.75} />
-              Instagram
-            </a>
+              <Calendar size={16} strokeWidth={1.75} />
+              Book a Slot
+            </button>
           </div>
 
           <motion.div
@@ -289,6 +291,9 @@ const quoteRef = useRef<HTMLDivElement | null>(null);
       <section className="fade-in-section py-32 md:py-48">
         <FeaturedCarousel />
       </section>
+
+      {/* Booking Section */}
+      <BookingSection />
 
       {/* About Section - Round Logo with Horizontal Text */}
       <section id="about" className="fade-in-section pt-5 md:pt-20 pb-2 md:pb-12 px-6 md:px-16 lg:px-24">
