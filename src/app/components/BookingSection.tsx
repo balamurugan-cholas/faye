@@ -51,10 +51,16 @@ export function BookingSection() {
   formData.append("phone", data.phone);
   formData.append("time", data.time);
   formData.append("message", data.message || "");
-  formData.append(
-    "date",
-    data.date ? data.date.toISOString() : ""
-  );
+  const formattedDate = data.date
+  ? data.date.toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  : "";
+
+formData.append("date", formattedDate);
 
   try {
     await fetch("/", {
