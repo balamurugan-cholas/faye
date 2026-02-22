@@ -43,28 +43,32 @@ export function BookingSection() {
   const selectedDate = watch('date');
 
   const onSubmitBooking = async (data: BookingFormData) => {
+  const formData = new FormData();
+
+  formData.append("form-name", "booking");
+  formData.append("name", data.name);
+  formData.append("email", data.email);
+  formData.append("phone", data.phone);
+  formData.append("time", data.time);
+  formData.append("message", data.message || "");
+  formData.append(
+    "date",
+    data.date ? data.date.toISOString() : ""
+  );
+
   try {
     await fetch("/", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: encode({
-        "form-name": "booking",
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        date: data.date?.toISOString(),
-        time: data.time,
-        message: data.message,
-      }),
+      body: formData,
     });
 
+    // ✅ only show success AFTER Netlify receives it
     setShowSuccessModal(true);
     reset();
+
   } catch (error) {
-    console.error(error);
-    alert("Something went wrong.");
+    console.error("Form submission error:", error);
+    alert("Something went wrong. Please try again.");
   }
 };
 
